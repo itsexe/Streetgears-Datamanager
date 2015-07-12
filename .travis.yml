@@ -1,0 +1,5 @@
+language: csharp
+solution: Streetgears-Datamanager.sln
+install:
+  - sudo apt-get install -y gtk-sharp2
+  - nuget restore Streetgears-Datamanager.sln
