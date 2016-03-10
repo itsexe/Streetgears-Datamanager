@@ -112,17 +112,12 @@ namespace SGunpacker
                 System.Windows.Forms.MessageBox.Show(ex.Message, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
         }
-        static byte[] GetBytes(string str)
-        {
-            byte[] bytes = new byte[str.Length * sizeof(char)];
-            Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
-            return bytes;
-        }
+
         public static void BuildPackage(List<string> path, string savePath, System.Windows.Forms.ProgressBar pb){
             string fileName = savePath + "\\";
             SgPack.Clear();
             //==========================================
-            //              Alte Archive Löschen
+            //              Delete old files
             //==========================================
 
             string savepath = savePath + "\\";
@@ -149,7 +144,7 @@ namespace SGunpacker
                 }
             }
             //==========================================
-            //              Dateien packen
+            //              Pack new files 
             //==========================================
             pb.Value = 0;
             pb.Maximum = path.Count();
@@ -170,9 +165,10 @@ namespace SGunpacker
 
                 byte[] bytes = File.ReadAllBytes(pt);
 
-                if (Encrypted(Path.GetExtension(pt).Replace(".","")))
+                string extension = Path.GetExtension(pt);
+                if (extension != null && Encrypted(extension.Replace(".","")))
                 {
-                    // verschlüsseln abspeichern
+                    // encrypt
                     byte xorss = 0;
                     for (int i = 0; i < bytes.Length; i++)
                     {
@@ -183,7 +179,7 @@ namespace SGunpacker
                 }
                 else
                 {
-                    // unverschlüsselt abspeichern
+                    //save without encryption
                     bwrite.Write(bytes);
                     // bwrite.Write
                 }
@@ -197,7 +193,7 @@ namespace SGunpacker
 
 
             //==========================================
-            //              Index bauen
+            //              build res.000 (index)
             //==========================================
             FileStream fs = new FileStream(fileName + "res.000", FileMode.CreateNew);
             BinaryWriter w = new BinaryWriter(fs);
@@ -248,7 +244,8 @@ namespace SGunpacker
             FileStream fs = new FileStream(datapath + "\\" + "res." + id, FileMode.Open, FileAccess.Read);
             fs.Seek(offset, SeekOrigin.Begin);
 
-            if (!Encrypted(Path.GetExtension(name).Replace(".", "")))
+            string extension = Path.GetExtension(name);
+            if (extension != null && !Encrypted(extension.Replace(".", "")))
             {
                 BinaryReader br = new BinaryReader(fs);
                 if (createsubdir)

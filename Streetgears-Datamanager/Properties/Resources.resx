@@ -132,4 +132,13 @@
   <data name="SavepathNewFiles" xml:space="preserve">
     <value>Please select the targetpath for the new resfiles</value>
   </data>
+  <data name="DumpWithoutSubfolders_Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="dumpWithoutSubfoldersWarningtext" xml:space="preserve">
+    <value>Warning: This will put a ton of files in the same folder. You maybe won't be able to browse that folder with the Windows Explorer! Are you sure?</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>Files:</value>
+  </data>
 </root>
