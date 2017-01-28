@@ -1,21 +1,58 @@
 # Streetgears-Datamanager
-This is a tool to manage the res.xxx files.
-It allows you to unpack an pack the res.000 - res.199 files.
+This is a tool to extract and create resource files for street gears.
+It runs on Windows, Mac & Linux.
 
 [![Build Status](https://travis-ci.org/itsexe/Streetgears-Datamanager.svg)](https://travis-ci.org/itsexe/Streetgears-Datamanager)
 
 ## Features
 + Viewing contents of res files
-+ Extracting the res files (and sort the content by the file type)
++ Extracting res files
 + Create new res files
 
-## Quick documentation about the file format
-res.000 is the index file. It contains the offset, hash of the filename and the filesize.
+## About the file format
+The street gears client uses 201 files to store data in.
+The first file (res.000) is the index file. It contains the offset, the encrypted file name and the file size.
 
-res.001 - res.200 are containing all gamefiles (textures and stuff). The gamefiles are encrypted except tga, dds, ffe and fx files.
+### Index File (res.000)
+This file contains all file names, sizes and offsets of the files stored in the res.001 - res.200 files.
 
-Which file has to be stored in which res file is calculated trough the hash of the filename. Look at the Code (StreetGearsDataCipher) for more details.
+Internal structure of an entry in the index file (res.000):
 
+Description | Length
+--- | -----------
+Length of the encrypted file name   | 1 Byte
+Encrypted file name  | X Bytes
+Offset (Encrypted)  | 4 Bytes
+File size (Encrypted)   | 4 Bytes
+
+### Data Files (res.001 - res.200)
+All binary data of the files specified in the res.000 is stored in the data files.
+The files are not separated by anything. The game knows by the offset and file size where exactly the file begins an where it ends.
+Some file types must be encrypted before writing them in the data file:
+
+File | Encrypted
+--- | -----------
+bmp   | Yes
+item  | Yes
+jpg  | Yes
+jtv   | Yes
+lua   | Yes
+map   | Yes
+naf   | Yes
+npc   | Yes
+nui   | Yes
+nus   | Yes
+nx3   | Yes
+rsg   | Yes
+spr   | Yes
+trick   | Yes
+ttf   | Yes
+txt   | Yes
+wav   | Yes
+tga   | No
+dds   | No
+ffe   | No
+fx   | No
 
 
 <p align="center">
