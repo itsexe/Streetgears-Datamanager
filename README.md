@@ -9,6 +9,12 @@ It runs on Windows, Mac & Linux.
 + Extracting res files
 + Create new res files
 
+## Usage
+Since this is a dotnet core application, you obviously need to install dotnet core. (https://www.microsoft.com/net/core)
+To execute the application simply run: "dotnet run"
+
+Even tough this is a dotnet core application, the code is still compatible with the regular .NET Framework. (Just copy over the code and everything should be fine)
+
 ## About the file format
 The street gears client uses 201 files to store data in.
 The first file (res.000) is the index file. It contains the offset, the encrypted file name and the file size.
