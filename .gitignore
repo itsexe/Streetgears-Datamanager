@@ -41,6 +41,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-Streetgears-Datamanager.v12.suo
-Streetgears-Datamanager/obj/
-Streetgears-Datamanager/bin/
+src/SG_ResManager/obj/
+src/SG_ResManager/bin/
+src/SG_ResManagerLib/obj/
+src/SG_ResManagerLib/bin/

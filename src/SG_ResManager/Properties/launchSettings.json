@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SG_ResManager": {
+      "commandName": "Project",
+      "commandLineArgs": "-v F:\\Development\\Streetgears Projekt\\Client\\res.000"
+    }
+  }
+}
