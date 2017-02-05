@@ -36,29 +36,29 @@ All binary data of the files specified in the res.000 is stored in the data file
 The files are not separated by anything. The game knows by the offset and file size where exactly the file begins an where it ends.
 Some file types must be encrypted before writing them in the data file:
 
-File | Encrypted
---- | -----------
-bmp   | Yes
-item  | Yes
-jpg  | Yes
-jtv   | Yes
-lua   | Yes
-map   | Yes
-naf   | Yes
-npc   | Yes
-nui   | Yes
-nus   | Yes
-nx3   | Yes
-rsg   | Yes
-spr   | Yes
-trick   | Yes
-ttf   | Yes
-txt   | Yes
-wav   | Yes
-tga   | No
-dds   | No
-ffe   | No
-fx   | No
+File | Encrypted | Category | Description
+--- | -----------|------ |-------------
+map   | Yes | Map | Contains the location of 3D models etc
+item  | Yes | Map | Contains the location of items on the maps
+trick   | Yes | Map | Contains locations of trick areas on the maps
+npc   | Yes | Map | Contains the location of npcs on the maps
+nui   | Yes | UI | Definitions of ingame windows (window sizes, button locations etc.)
+nus   | Yes | UI | Scripts for ingame windows written in lua
+ttf   | Yes | UI | Font files
+spr   | Yes | UI | Defines background images for buttons and windows
+tga   | No | UI | Images (Mostly for ui stuff)
+bmp   | Yes | Images | Images
+jpg  | Yes | Images | More Images
+dds   | No | Images | Textures
+jtv   | Yes | Videos | Videos (Intro etc.)
+naf   | Yes | 3D | Has something todo with the nx3 files (Maybe extentions like hair or something)
+nx3   | Yes | 3D | 3D Models (can be edited in blender: https://github.com/glandu2/BTRFdom)
+rsg   | Yes | - | Maybe effects for tricks (?)
+txt   | Yes | - | Contains various data like item definitions, localizations, blacklisted words for the chat etc.
+wav   | Yes | - | sound files
+lua   | Yes | - | Scripts for animations, missions etc.
+ffe   | No | - | ?
+fx   | No | - | effetcs (?)
 
 
 <p align="center">
