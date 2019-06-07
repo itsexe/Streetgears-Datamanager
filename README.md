@@ -2,8 +2,6 @@
 This is a tool to extract and create resource files for street gears.
 It runs on Windows, Mac & Linux.
 
-[![Build Status](https://travis-ci.org/itsexe/Streetgears-Datamanager.svg)](https://travis-ci.org/itsexe/Streetgears-Datamanager)
-
 ## Features
 + Viewing contents of res files
 + Extracting res files
